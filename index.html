@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Заявки для мастера — сайт и реклама под ключ для мастеров по ремонту техники</title>
+    <meta name="description" content="Делаем сайт и настраиваем рекламу в Яндекс.Директ для мастеров по ремонту холодильников, кондиционеров и стиральных машин. Первые заявки за 3-5 дней.">
+    <meta property="og:title" content="Заявки для мастера — сайт и реклама под ключ">
+    <meta property="og:description" content="Сайт + Яндекс.Директ под ключ для мастеров по ремонту техники. Работаем по всей России.">
+    <meta property="og:type" content="website">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --ink: #0f1115;
+            --ink-panel: #161923;
+            --ink-light: #1e2230;
+            --border-dark: #2a2f3f;
+            --muted-dark: #9198ab;
+
+            --bg-light: #f7f8fb;
+            --text-light-bg: #0f1115;
+            --muted-light: #5c6478;
+            --border-light: #e4e6ee;
+
+            --accent: #5b5bf5;
+            --accent-hover: #4747dd;
+            --accent-dark: #7b7bff;
+            --success: #22c55e;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Manrope', sans-serif; line-height: 1.6; color: var(--text-light-bg); background: var(--bg-light); -webkit-font-smoothing: antialiased; }
+        h1, h2, h3, .display-text { font-family: 'Space Grotesk', sans-serif; font-weight: 700; line-height: 1.15; }
+        .container { max-width: 1080px; margin: 0 auto; padding: 0 20px; }
+        a { color: inherit; }
+
+        /* --- ШАПКА --- */
+        nav {
+            position: sticky; top: 0; z-index: 200; background-color: rgba(247,248,251,0.92); backdrop-filter: blur(8px); padding: 18px 0;
+            border-bottom: 1px solid var(--border-light); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px;
+        }
+        .logo { font-family: 'Space Grotesk', sans-serif; font-size: 1.25rem; font-weight: 700; display: flex; align-items: center; gap: 10px; letter-spacing: -0.5px; }
+        .logo-badge { display: inline-flex; align-items: center; justify-content: center; width: 34px; height: 34px; background: var(--accent); border-radius: 8px; color: #fff; font-size: 1rem; }
+        .nav-links { display: flex; gap: 25px; }
+        .nav-links a { color: var(--muted-light); text-decoration: none; font-size: 0.9rem; font-weight: 600; transition: color 0.2s; }
+        .nav-links a:hover { color: var(--text-light-bg); }
+        .nav-cta { background: var(--accent); color: #fff; text-decoration: none; padding: 10px 20px; border-radius: 8px; font-size: 0.85rem; font-weight: 700; transition: background 0.2s; }
+        .nav-cta:hover { background: var(--accent-hover); }
+
+        /* --- HERO --- */
+        .hero-section { background: radial-gradient(circle at 20% 10%, var(--ink-light), var(--ink) 60%); color: #fff; padding: 90px 0 70px 0; position: relative; overflow: hidden; }
+        .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(91,91,245,0.15); border: 1px solid rgba(91,91,245,0.4); color: var(--accent-dark); font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; padding: 8px 16px; border-radius: 30px; margin-bottom: 25px; }
+        .hero-section h1 { font-size: clamp(2.1rem, 4vw, 3.1rem); margin-bottom: 20px; letter-spacing: -1px; max-width: 780px; }
+        .hero-section h1 span { color: var(--accent-dark); }
+        .hero-section p.lead { font-size: 1.1rem; color: var(--muted-dark); max-width: 620px; margin-bottom: 35px; }
+
+        .hero-cta-row { display: flex; gap: 15px; flex-wrap: wrap; }
+        .btn-primary {
+            display: inline-flex; align-items: center; gap: 10px; background-color: var(--accent); color: #fff; text-decoration: none; padding: 18px 32px;
+            font-size: 0.95rem; font-weight: 700; border-radius: 10px; border: none; cursor: pointer; transition: background 0.2s, transform 0.2s;
+        }
+        .btn-primary:hover { background-color: var(--accent-hover); transform: translateY(-2px); }
+        .btn-secondary {
+            display: inline-flex; align-items: center; gap: 10px; background: rgba(255,255,255,0.06); color: #fff; text-decoration: none; padding: 18px 32px;
+            font-size: 0.95rem; font-weight: 700; border-radius: 10px; border: 1px solid rgba(255,255,255,0.18); transition: background 0.2s;
+        }
+        .btn-secondary:hover { background: rgba(255,255,255,0.12); }
+
+        .hero-stats { display: flex; gap: 30px; margin-top: 45px; flex-wrap: wrap; }
+        .hero-stat b { display: block; font-family: 'Space Grotesk', sans-serif; font-size: 1.7rem; color: #fff; }
+        .hero-stat span { font-size: 0.8rem; color: var(--muted-dark); text-transform: uppercase; letter-spacing: 0.5px; }
+
+        /* --- ДОВЕРИЕ --- */
+        .trust-bar { background: #fff; border-bottom: 1px solid var(--border-light); padding: 30px 0; }
+        .trust-bar .container { display: grid; grid-template-columns: repeat(4, 1fr); gap: 25px; text-align: center; }
+        .trust-item { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.5px; color: var(--muted-light); }
+        .trust-item b { display: block; font-family: 'Space Grotesk', sans-serif; font-size: 1.3rem; color: var(--text-light-bg); text-transform: none; letter-spacing: 0; margin-bottom: 6px; }
+
+        /* --- ОБЩЕЕ ДЛЯ СЕКЦИЙ --- */
+        .section { padding: 90px 0; }
+        .section-header { text-align: center; max-width: 640px; margin: 0 auto 55px auto; }
+        .section-kicker { display: inline-block; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: var(--accent-hover); margin-bottom: 12px; }
+        .section-header h2 { font-size: clamp(1.7rem, 3.2vw, 2.3rem); margin-bottom: 12px; }
+        .section-header p { color: var(--muted-light); font-size: 1rem; }
+
+        /* --- БОЛЬ --- */
+        .pain-section { background: var(--ink); color: #fff; }
+        .pain-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+        .pain-card { background: var(--ink-panel); border: 1px solid var(--border-dark); border-radius: 14px; padding: 24px 26px; display: flex; align-items: flex-start; gap: 16px; }
+        .pain-icon { flex-shrink: 0; width: 42px; height: 42px; border-radius: 10px; background: rgba(91,91,245,0.15); color: var(--accent-dark); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; }
+        .pain-card span { font-size: 0.95rem; color: #e6e8f2; }
+
+        /* --- КАК РАБОТАЕТ --- */
+        .steps-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 25px; }
+        .step-card { position: relative; padding-top: 10px; }
+        .step-number { font-family: 'Space Grotesk', sans-serif; font-size: 2.4rem; font-weight: 700; color: rgba(15,17,21,0.08); line-height: 1; margin-bottom: 12px; }
+        .step-card h3 { font-size: 1.02rem; margin-bottom: 10px; }
+        .step-card p { font-size: 0.9rem; color: var(--muted-light); }
+
+        /* --- КЕЙС --- */
+        .case-section { background: #fff; }
+        .case-box { background: var(--bg-light); border: 1px solid var(--border-light); border-radius: 18px; padding: 40px; display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 40px; align-items: center; }
+        .case-box h3 { font-size: 1.4rem; margin-bottom: 14px; }
+        .case-box p { color: var(--muted-light); margin-bottom: 20px; }
+        .case-metrics { display: flex; gap: 25px; flex-wrap: wrap; margin-bottom: 25px; }
+        .case-metric b { display: block; font-family: 'Space Grotesk', sans-serif; font-size: 1.5rem; color: var(--accent-hover); }
+        .case-metric span { font-size: 0.78rem; color: var(--muted-light); text-transform: uppercase; letter-spacing: 0.5px; }
+        .case-visual { background: var(--ink); border-radius: 14px; padding: 30px; color: #fff; text-align: center; }
+        .case-visual .domain { font-family: 'Space Grotesk', sans-serif; font-size: 1.3rem; color: var(--accent-dark); margin-bottom: 10px; }
+        .case-visual a.visit-link { display: inline-block; margin-top: 15px; color: #fff; text-decoration: none; border: 1px solid rgba(255,255,255,0.2); padding: 12px 24px; border-radius: 8px; font-size: 0.85rem; font-weight: 700; transition: background 0.2s; }
+        .case-visual a.visit-link:hover { background: rgba(255,255,255,0.1); }
+
+        /* --- ТАРИФЫ --- */
+        .pricing-section { background: var(--bg-light); }
+        .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; align-items: stretch; }
+        .price-card { background: #fff; border: 1px solid var(--border-light); border-radius: 18px; padding: 34px 28px; display: flex; flex-direction: column; }
+        .price-card.featured { border: 2px solid var(--accent); position: relative; transform: translateY(-8px); box-shadow: 0 20px 40px rgba(91,91,245,0.15); }
+        .price-badge { position: absolute; top: -13px; left: 50%; transform: translateX(-50%); background: var(--accent); color: #fff; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; padding: 5px 14px; border-radius: 20px; }
+        .price-card h3 { font-size: 1.15rem; margin-bottom: 6px; }
+        .price-card .price-tagline { font-size: 0.85rem; color: var(--muted-light); margin-bottom: 22px; }
+        .price-row { display: flex; align-items: baseline; gap: 8px; margin-bottom: 4px; }
+        .price-row .price-num { font-family: 'Space Grotesk', sans-serif; font-size: 1.7rem; font-weight: 700; }
+        .price-row .price-unit { font-size: 0.8rem; color: var(--muted-light); }
+        .price-sub { font-size: 0.82rem; color: var(--muted-light); margin-bottom: 22px; padding-bottom: 22px; border-bottom: 1px solid var(--border-light); }
+        .price-features { list-style: none; display: flex; flex-direction: column; gap: 12px; margin-bottom: 28px; flex-grow: 1; }
+        .price-features li { font-size: 0.88rem; display: flex; align-items: flex-start; gap: 10px; color: var(--text-light-bg); }
+        .price-features li::before { content: "✓"; color: var(--success); font-weight: 800; flex-shrink: 0; }
+        .price-card .btn-primary { justify-content: center; width: 100%; }
+        .price-card:not(.featured) .btn-primary { background: var(--ink); }
+        .price-card:not(.featured) .btn-primary:hover { background: var(--ink-light); }
+
+        .ai-addon { background: #fff; border: 1px dashed var(--accent); border-radius: 16px; padding: 28px 32px; margin-top: 30px; display: flex; align-items: center; gap: 24px; flex-wrap: wrap; }
+        .ai-addon-icon { flex-shrink: 0; width: 52px; height: 52px; border-radius: 12px; background: rgba(91,91,245,0.1); color: var(--accent-hover); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; }
+        .ai-addon h4 { font-size: 1.05rem; margin-bottom: 6px; }
+        .ai-addon p { font-size: 0.88rem; color: var(--muted-light); }
+        .ai-addon .price-tag { margin-left: auto; text-align: right; font-family: 'Space Grotesk', sans-serif; font-weight: 700; white-space: nowrap; }
+        .ai-addon .price-tag span { display: block; font-size: 0.75rem; color: var(--muted-light); font-weight: 400; font-family: 'Manrope', sans-serif; }
+
+        /* --- FAQ --- */
+        .faq-item { border-bottom: 1px solid var(--border-light); padding: 22px 0; }
+        .faq-item summary { font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 1.02rem; cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 20px; }
+        .faq-item summary::-webkit-details-marker { display: none; }
+        .faq-item summary::after { content: "+"; font-size: 1.5rem; font-weight: 300; color: var(--accent-hover); flex-shrink: 0; }
+        .faq-item[open] summary::after { content: "\2013"; }
+        .faq-item p { margin-top: 14px; color: var(--muted-light); font-size: 0.94rem; max-width: 700px; }
+
+        /* --- ФОРМА ЗАЯВКИ --- */
+        .lead-section { background: var(--ink); color: #fff; }
+        .lead-box { background: var(--ink-panel); border: 1px solid var(--border-dark); border-radius: 18px; padding: 45px; max-width: 560px; margin: 0 auto; }
+        .lead-box h3 { font-size: 1.3rem; margin-bottom: 10px; text-align: center; }
+        .lead-box p.lead-desc { text-align: center; color: var(--muted-dark); font-size: 0.9rem; margin-bottom: 30px; }
+        .lead-form .form-group { margin-bottom: 18px; }
+        .lead-form label { display: block; font-size: 0.82rem; font-weight: 700; margin-bottom: 8px; color: #fff; }
+        .lead-form input[type="text"], .lead-form input[type="tel"], .lead-form select, .lead-form textarea {
+            width: 100%; padding: 14px 16px; border: 1px solid var(--border-dark); background: var(--ink); color: #fff; border-radius: 10px;
+            font-family: 'Manrope', sans-serif; font-size: 0.95rem; transition: border-color 0.2s;
+        }
+        .lead-form select { cursor: pointer; }
+        .lead-form input:focus, .lead-form select:focus, .lead-form textarea:focus { outline: none; border-color: var(--accent); }
+        .lead-form-consent { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 22px; }
+        .lead-form-consent input { margin-top: 4px; flex-shrink: 0; }
+        .lead-form-consent label { font-size: 0.78px; font-size: 0.78rem; color: var(--muted-dark); }
+        .lead-form-consent a { color: var(--accent-dark); }
+        .lead-form-status { margin-top: 15px; text-align: center; font-size: 0.88rem; }
+
+        /* --- ФУТЕР --- */
+        footer { background-color: var(--ink); border-top: 1px solid var(--border-dark); padding: 40px 0; text-align: center; color: var(--muted-dark); font-size: 0.85rem; }
+        .footer-logo { font-family: 'Space Grotesk', sans-serif; font-size: 1.1rem; color: #fff; margin-bottom: 10px; font-weight: 700; }
+
+        @media (max-width: 900px) {
+            .pain-grid { grid-template-columns: 1fr; }
+            .steps-grid { grid-template-columns: repeat(2, 1fr); gap: 30px; }
+            .case-box { grid-template-columns: 1fr; }
+            .pricing-grid { grid-template-columns: 1fr; }
+            .price-card.featured { transform: none; }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .trust-bar .container { grid-template-columns: repeat(2, 1fr); }
+            .section { padding: 60px 0; }
+            .lead-box { padding: 30px 22px; }
+            .ai-addon { flex-direction: column; text-align: center; }
+            .ai-addon .price-tag { margin-left: 0; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="container">
+        <div class="logo">
+            <span class="logo-badge">⚡</span>
+            Заявки для мастера
+        </div>
+        <div class="nav-links">
+            <a href="#how">Как это работает</a>
+            <a href="#case">Кейс</a>
+            <a href="#pricing">Тарифы</a>
+            <a href="#faq">Вопросы</a>
+        </div>
+        <a href="#lead" class="nav-cta">Оставить заявку</a>
+    </nav>
+
+    <header class="hero-section">
+        <div class="container">
+            <div class="hero-badge">Работаем по всей России</div>
+            <h1>Сайт и реклама <span>под ключ</span> для мастеров по ремонту техники</h1>
+            <p class="lead">Делаем продающий сайт и настраиваем рекламу в Яндекс.Директ так, чтобы заявки от клиентов шли прямо вам в Telegram. Первые заявки — за 3-5 дней после запуска.</p>
+
+            <div class="hero-cta-row">
+                <a href="#lead" class="btn-primary">Оставить заявку</a>
+                <a href="#case" class="btn-secondary">Посмотреть живой пример</a>
+            </div>
+
+            <div class="hero-stats">
+                <div class="hero-stat"><b>3-5 дней</b><span>До запуска рекламы</span></div>
+                <div class="hero-stat"><b>от 15 000 ₽</b><span>Сайт под ключ</span></div>
+                <div class="hero-stat"><b>Telegram</b><span>Заявки сразу вам</span></div>
+            </div>
+        </div>
+    </header>
+
+    <div class="trust-bar">
+        <div class="container">
+            <div class="trust-item"><b>Свой сайт</b>Не общая база лидов</div>
+            <div class="trust-item"><b>Своя реклама</b>Не перекупленный трафик</div>
+            <div class="trust-item"><b>Прозрачно</b>Видите цену каждой заявки</div>
+            <div class="trust-item"><b>Без франшиз</b>Без паушального взноса</div>
+        </div>
+    </div>
+
+    <section class="section pain-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-kicker" style="color: var(--accent-dark);">Знакомая ситуация?</span>
+                <h2 style="color: #fff;">Проблемы, которые мешают мастеру расти</h2>
+                <p style="color: var(--muted-dark);">Работа есть, но она нестабильна и зависит от случайных рекомендаций</p>
+            </div>
+
+            <div class="pain-grid">
+                <div class="pain-card">
+                    <div class="pain-icon">📉</div>
+                    <span>Клиенты приходят только по сарафанному радио — в межсезонье заказов почти нет</span>
+                </div>
+                <div class="pain-card">
+                    <div class="pain-icon">💸</div>
+                    <span>Покупаете лиды пачками у посредников — половина оказывается нецелевой или уже "разобранной"</span>
+                </div>
+                <div class="pain-card">
+                    <div class="pain-icon">🕑</div>
+                    <span>Нет времени разбираться в рекламных кабинетах, сайтах и аналитике — вы чините технику, а не настраиваете Директ</span>
+                </div>
+                <div class="pain-card">
+                    <div class="pain-icon">🤷</div>
+                    <span>Непонятно, сколько реально стоит одна заявка и окупается ли реклама вообще</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="how">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-kicker">Как это устроено</span>
+                <h2>От заявки до потока клиентов — 4 шага</h2>
+            </div>
+
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-number">01</div>
+                    <h3>Обсуждаем нишу и город</h3>
+                    <p>Узнаём, какую технику вы чините и где работаете — под это готовим сайт и семантику для рекламы.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">02</div>
+                    <h3>Делаем сайт</h3>
+                    <p>Продающий одностраничник с формой заявки — по проверенному шаблону, который уже приносит заявки другим мастерам.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">03</div>
+                    <h3>Запускаем рекламу</h3>
+                    <p>Настраиваем Яндекс.Директ на ваш город, подключаем аналитику — вы видите, сколько стоит каждая заявка.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">04</div>
+                    <h3>Заявки идут вам в Telegram</h3>
+                    <p>Клиент оставляет заявку на сайте — вы получаете сообщение с именем, телефоном и описанием проблемы.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section case-section" id="case">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-kicker">Не макет, а рабочий пример</span>
+                <h2>Так выглядит сайт, который уже приносит заявки</h2>
+                <p>Это не портфолио-заглушка — сайт реально работает и получает заявки прямо сейчас</p>
+            </div>
+
+            <div class="case-box">
+                <div>
+                    <h3>РемТех Сургут — ремонт холодильников</h3>
+                    <p>Одностраничный сайт с формой заявки, интеграцией в Telegram и рекламой в Яндекс.Директ. Запущен и работает по Сургуту.</p>
+                    <div class="case-metrics">
+                        <div class="case-metric"><b>1 год</b><span>Гарантия на сайте</span></div>
+                        <div class="case-metric"><b>SSL</b><span>Свой домен, HTTPS</span></div>
+                        <div class="case-metric"><b>24/7</b><span>Форма принимает заявки</span></div>
+                    </div>
+                </div>
+                <div class="case-visual">
+                    <div class="domain">рембыт86.рф</div>
+                    <div style="font-size: 0.85rem; color: var(--muted-dark);">Живой сайт с рекламной кампанией</div>
+                    <a href="https://рембыт86.рф" target="_blank" rel="noopener" class="visit-link">Открыть сайт →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section pricing-section" id="pricing">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-kicker">Тарифы</span>
+                <h2>Выберите вовлечённость, а не переплачивайте</h2>
+                <p>Разовая оплата за сайт + ежемесячное ведение рекламы. Рекламный бюджет оплачивается отдельно, напрямую в Яндекс.Директ.</p>
+            </div>
+
+            <div class="pricing-grid">
+                <div class="price-card">
+                    <h3>Старт</h3>
+                    <p class="price-tagline">Попробовать без большого риска</p>
+                    <div class="price-row"><span class="price-num">15 000 ₽</span><span class="price-unit">разово</span></div>
+                    <div class="price-sub">+ 10 000 ₽ / мес ведение</div>
+                    <ul class="price-features">
+                        <li>Сайт с формой заявки на вашем движке</li>
+                        <li>Базовая настройка Директа (поиск)</li>
+                        <li>Готовые ключевые фразы под нишу</li>
+                        <li>Счётчик Метрики + 2 цели</li>
+                        <li>Заявки — сразу в Telegram</li>
+                    </ul>
+                    <a href="#lead" class="btn-primary">Выбрать «Старт»</a>
+                </div>
+
+                <div class="price-card featured">
+                    <span class="price-badge">Популярный выбор</span>
+                    <h3>Стандарт</h3>
+                    <p class="price-tagline">Стабильный поток заявок</p>
+                    <div class="price-row"><span class="price-num">22 000 ₽</span><span class="price-unit">разово</span></div>
+                    <div class="price-sub">+ 13 000 ₽ / мес ведение</div>
+                    <ul class="price-features">
+                        <li>Всё из тарифа «Старт»</li>
+                        <li>2 A/B-варианта сайта для теста</li>
+                        <li>Расширенная семантика (4 группы фраз)</li>
+                        <li>Ежемесячный отчёт по заявкам и их цене</li>
+                        <li>Корректировка ставок под лучшие запросы</li>
+                    </ul>
+                    <a href="#lead" class="btn-primary">Выбрать «Стандарт»</a>
+                </div>
+
+                <div class="price-card">
+                    <h3>PRO</h3>
+                    <p class="price-tagline">Для загруженных мастеров и бригад</p>
+                    <div class="price-row"><span class="price-num">38 000 ₽</span><span class="price-unit">разово</span></div>
+                    <div class="price-sub">+ 20 000 ₽ / мес ведение</div>
+                    <ul class="price-features">
+                        <li>Всё из тарифа «Стандарт»</li>
+                        <li>Доп. страницы под отдельные услуги</li>
+                        <li>Реклама в РСЯ вторым каналом</li>
+                        <li>Приоритетные правки — в течение суток</li>
+                        <li>Тестирование новых текстов объявлений</li>
+                    </ul>
+                    <a href="#lead" class="btn-primary">Выбрать «PRO»</a>
+                </div>
+            </div>
+
+            <div class="ai-addon">
+                <div class="ai-addon-icon">🤖</div>
+                <div>
+                    <h4>AI-ассистент в чате на сайте</h4>
+                    <p>Пока вы на объекте — ИИ сам общается с клиентом на сайте, узнаёт проблему и модель техники, и присылает вам готовую заявку в Telegram.</p>
+                </div>
+                <div class="price-tag">8 000 ₽<span>разово</span>+ 2 000 ₽<span>/ мес</span></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="faq">
+        <div class="container" style="max-width: 780px;">
+            <div class="section-header">
+                <span class="section-kicker">Вопросы</span>
+                <h2>Частые вопросы</h2>
+            </div>
+
+            <details class="faq-item" open>
+                <summary>Кто платит за рекламный бюджет в Яндекс.Директе?</summary>
+                <p>Рекламный бюджет вы оплачиваете напрямую в Яндекс.Директ, отдельно от наших тарифов. Мы берём оплату только за создание сайта и ведение кампании — не за клики и показы.</p>
+            </details>
+
+            <details class="faq-item">
+                <summary>Сколько ждать первую заявку?</summary>
+                <p>Сайт делаем за 2-3 дня, запуск рекламы — ещё 1-2 дня на модерацию в Яндексе. Первые заявки обычно приходят в течение первой недели после запуска, но точные сроки зависят от вашего города и ниши.</p>
+            </details>
+
+            <details class="faq-item">
+                <summary>Сколько стоит одна заявка от клиента?</summary>
+                <p>Зависит от города и конкуренции в нише — обычно от 300 до 1500 ₽. Вы видите точную цифру в своей Яндекс.Метрике, мы ничего не скрываем и не накручиваем.</p>
+            </details>
+
+            <details class="faq-item">
+                <summary>Можно ли начать с малого и потом перейти на тариф выше?</summary>
+                <p>Да, большинство клиентов начинают с «Старт» или «Стандарт», а через 1-2 месяца, увидев результат, переходят на тариф выше — доплачиваете только разницу.</p>
+            </details>
+
+            <details class="faq-item">
+                <summary>Это франшиза? Нужно платить паушальный взнос?</summary>
+                <p>Нет, это не франшиза. Вы платите только за конкретную услугу — сайт и ведение рекламы, без вступительных взносов и роялти с оборота.</p>
+            </details>
+        </div>
+    </section>
+
+    <section class="section lead-section" id="lead">
+        <div class="container">
+            <div class="lead-box">
+                <h3 class="display-text">Оставьте заявку</h3>
+                <p class="lead-desc">Расскажите, какую технику чините и в каком городе работаете — свяжемся и обсудим детали.</p>
+
+                <form class="lead-form" onsubmit="return submitLeadForm(event)">
+                    <div class="form-group">
+                        <label>Ваше имя</label>
+                        <input type="text" name="name" required placeholder="Например, Александр" maxlength="100">
+                    </div>
+                    <div class="form-group">
+                        <label>Телефон</label>
+                        <input type="tel" name="phone" required placeholder="+79991234567" oninput="maskPhoneInput(event)">
+                    </div>
+                    <div class="form-group">
+                        <label>Город</label>
+                        <input type="text" name="city" required placeholder="Например, Сургут" maxlength="100">
+                    </div>
+                    <div class="form-group">
+                        <label>Какую технику ремонтируете?</label>
+                        <select name="niche" required>
+                            <option value="" disabled selected>Выберите нишу</option>
+                            <option value="Холодильники">Холодильники</option>
+                            <option value="Кондиционеры">Кондиционеры</option>
+                            <option value="Стиральные машины">Стиральные машины</option>
+                            <option value="Несколько направлений">Несколько направлений</option>
+                            <option value="Другое">Другое</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Комментарий (необязательно)</label>
+                        <textarea name="details" rows="3" placeholder="Например: работаю один, ищу первых клиентов через рекламу"></textarea>
+                    </div>
+                    <div class="lead-form-consent">
+                        <input type="checkbox" id="consent" required>
+                        <label for="consent">Согласен(а) на обработку персональных данных согласно <a href="policy.html" target="_blank">Политике конфиденциальности</a></label>
+                    </div>
+                    <button type="submit" class="btn-primary" style="width: 100%;">Отправить заявку</button>
+                    <div class="lead-form-status" id="lead-form-status"></div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-logo">Заявки для мастера</div>
+            <p>Сайты и реклама под ключ для мастеров по ремонту техники. Работаем по всей России.</p>
+            <p style="margin-top: 20px; font-size: 0.75rem; opacity: 0.7;">© 2026 Все права защищены.</p>
+            <div style="text-align: center; margin-top: 20px;">
+                <a href="policy.html" style="color: var(--muted-dark); font-size: 12px; text-decoration: underline;">Политика конфиденциальности</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // TODO: подключить Cloudflare Worker + отдельный Telegram-бот для заявок от мастеров
+        const LEAD_WORKER_URL = '';
+
+        function maskPhoneInput(event) {
+            const input = event.target;
+            let digits = input.value.replace(/\D/g, '');
+
+            if (digits.startsWith('8')) {
+                digits = '7' + digits.slice(1);
+            } else if (digits && !digits.startsWith('7')) {
+                digits = '7' + digits;
+            }
+
+            digits = digits.slice(0, 11);
+            input.value = digits ? '+' + digits : '';
+        }
+
+        function isValidRuPhone(phone) {
+            return /^\+7\d{10}$/.test(phone);
+        }
+
+        function submitLeadForm(event) {
+            event.preventDefault();
+            const form = event.target;
+            const statusEl = document.getElementById('lead-form-status');
+            const submitBtn = form.querySelector('button[type="submit"]');
+            const phone = form.phone.value.trim();
+
+            statusEl.style.color = '';
+            statusEl.textContent = '';
+
+            if (!isValidRuPhone(phone)) {
+                statusEl.style.color = '#f87171';
+                statusEl.textContent = 'Проверьте номер телефона — он должен быть в формате +7 и 10 цифр.';
+                return false;
+            }
+
+            if (!LEAD_WORKER_URL) {
+                statusEl.style.color = '#facc15';
+                statusEl.textContent = 'Приём заявок пока настраивается — оставьте контакт другим способом, скоро форма заработает.';
+                return false;
+            }
+
+            const name = form.name.value.trim();
+            const city = form.city.value.trim();
+            const niche = form.niche.value;
+            const details = form.details.value.trim();
+
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Отправляем...';
+
+            fetch(LEAD_WORKER_URL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ name, phone, source: 'Заявки для мастера', details: `Город: ${city}. Ниша: ${niche}. ${details}` }),
+            })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.ok) {
+                        window.location.href = 'thanks.html';
+                    } else {
+                        throw new Error(data.error || 'unknown');
+                    }
+                })
+                .catch(() => {
+                    statusEl.style.color = '#f87171';
+                    statusEl.textContent = 'Не получилось отправить заявку. Попробуйте ещё раз чуть позже.';
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Отправить заявку';
+                });
+
+            return false;
+        }
+    </script>
+
+</body>
+</html>
