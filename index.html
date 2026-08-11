@@ -11,31 +11,34 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 
     <style>
         :root {
-            --ink: #0f1115;
-            --ink-panel: #161923;
-            --ink-light: #1e2230;
-            --border-dark: #2a2f3f;
-            --muted-dark: #9198ab;
+            --ink: #030202;
+            --ink-panel: #17181c;
+            --ink-light: #202126;
+            --border-dark: #2c2d33;
+            --muted-dark: #9a9a9f;
 
-            --bg-light: #f7f8fb;
-            --text-light-bg: #0f1115;
-            --muted-light: #5c6478;
-            --border-light: #e4e6ee;
+            --bg-light: #f5f6f7;
+            --text-light-bg: #2f3135;
+            --muted-light: #6f747d;
+            --border-light: #e6e7e9;
 
-            --accent: #5b5bf5;
-            --accent-hover: #4747dd;
-            --accent-dark: #7b7bff;
+            --accent: #3048ea;
+            --accent-hover: #2438c4;
+            --accent-dark: #5f74ff;
             --success: #22c55e;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
         html { scroll-behavior: smooth; }
         body { font-family: 'Manrope', sans-serif; line-height: 1.6; color: var(--text-light-bg); background: var(--bg-light); -webkit-font-smoothing: antialiased; }
-        h1, h2, h3, .display-text { font-family: 'Space Grotesk', sans-serif; font-weight: 700; line-height: 1.15; }
+        h1, h2, h3, .display-text { font-family: 'Unbounded', sans-serif; font-weight: 600; line-height: 1.25; letter-spacing: -0.5px; }
         .container { max-width: 1080px; margin: 0 auto; padding: 0 20px; }
         a { color: inherit; }
 
@@ -44,7 +47,7 @@
             position: sticky; top: 0; z-index: 200; background-color: rgba(247,248,251,0.92); backdrop-filter: blur(8px); padding: 18px 0;
             border-bottom: 1px solid var(--border-light); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px;
         }
-        .logo { font-family: 'Space Grotesk', sans-serif; font-size: 1.25rem; font-weight: 700; display: flex; align-items: center; gap: 10px; letter-spacing: -0.5px; }
+        .logo { font-family: 'Unbounded', sans-serif; font-size: 1.1rem; font-weight: 600; display: flex; align-items: center; gap: 10px; letter-spacing: -0.3px; }
         .logo-badge { display: inline-flex; align-items: center; justify-content: center; width: 34px; height: 34px; background: var(--accent); border-radius: 8px; color: #fff; font-size: 1rem; }
         .nav-links { display: flex; gap: 25px; }
         .nav-links a { color: var(--muted-light); text-decoration: none; font-size: 0.9rem; font-weight: 600; transition: color 0.2s; }
@@ -54,7 +57,7 @@
 
         /* --- HERO --- */
         .hero-section { background: radial-gradient(circle at 20% 10%, var(--ink-light), var(--ink) 60%); color: #fff; padding: 90px 0 70px 0; position: relative; overflow: hidden; }
-        .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(91,91,245,0.15); border: 1px solid rgba(91,91,245,0.4); color: var(--accent-dark); font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; padding: 8px 16px; border-radius: 30px; margin-bottom: 25px; }
+        .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(48,72,234,0.15); border: 1px solid rgba(48,72,234,0.4); color: var(--accent-dark); font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; padding: 8px 16px; border-radius: 30px; margin-bottom: 25px; }
         .hero-section h1 { font-size: clamp(2.1rem, 4vw, 3.1rem); margin-bottom: 20px; letter-spacing: -1px; max-width: 780px; }
         .hero-section h1 span { color: var(--accent-dark); }
         .hero-section p.lead { font-size: 1.1rem; color: var(--muted-dark); max-width: 620px; margin-bottom: 35px; }
@@ -72,14 +75,14 @@
         .btn-secondary:hover { background: rgba(255,255,255,0.12); }
 
         .hero-stats { display: flex; gap: 30px; margin-top: 45px; flex-wrap: wrap; }
-        .hero-stat b { display: block; font-family: 'Space Grotesk', sans-serif; font-size: 1.7rem; color: #fff; }
+        .hero-stat b { display: block; font-family: 'Manrope', sans-serif; font-size: 1.7rem; color: #fff; }
         .hero-stat span { font-size: 0.8rem; color: var(--muted-dark); text-transform: uppercase; letter-spacing: 0.5px; }
 
         /* --- ДОВЕРИЕ --- */
         .trust-bar { background: #fff; border-bottom: 1px solid var(--border-light); padding: 30px 0; }
         .trust-bar .container { display: grid; grid-template-columns: repeat(4, 1fr); gap: 25px; text-align: center; }
         .trust-item { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.5px; color: var(--muted-light); }
-        .trust-item b { display: block; font-family: 'Space Grotesk', sans-serif; font-size: 1.3rem; color: var(--text-light-bg); text-transform: none; letter-spacing: 0; margin-bottom: 6px; }
+        .trust-item b { display: block; font-family: 'Manrope', sans-serif; font-size: 1.3rem; color: var(--text-light-bg); text-transform: none; letter-spacing: 0; margin-bottom: 6px; }
 
         /* --- ОБЩЕЕ ДЛЯ СЕКЦИЙ --- */
         .section { padding: 90px 0; }
@@ -91,16 +94,26 @@
         /* --- БОЛЬ --- */
         .pain-section { background: var(--ink); color: #fff; }
         .pain-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
-        .pain-card { background: var(--ink-panel); border: 1px solid var(--border-dark); border-radius: 14px; padding: 24px 26px; display: flex; align-items: flex-start; gap: 16px; }
-        .pain-icon { flex-shrink: 0; width: 42px; height: 42px; border-radius: 10px; background: rgba(91,91,245,0.15); color: var(--accent-dark); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; }
+        .pain-card { background: var(--ink-panel); border: 1px solid var(--border-dark); border-radius: 14px; padding: 24px 26px; display: flex; align-items: flex-start; gap: 16px; transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease; }
+        .pain-card:hover { transform: translateY(-4px); border-color: rgba(48,72,234,0.4); box-shadow: 0 16px 32px rgba(0,0,0,0.25); }
+        .pain-icon { flex-shrink: 0; width: 42px; height: 42px; border-radius: 10px; background: rgba(48,72,234,0.15); color: var(--accent-dark); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; }
         .pain-card span { font-size: 0.95rem; color: #e6e8f2; }
 
         /* --- КАК РАБОТАЕТ --- */
         .steps-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 25px; }
         .step-card { position: relative; padding-top: 10px; }
-        .step-number { font-family: 'Space Grotesk', sans-serif; font-size: 2.4rem; font-weight: 700; color: rgba(15,17,21,0.08); line-height: 1; margin-bottom: 12px; }
+        .step-number { font-family: 'Manrope', sans-serif; font-size: 2.4rem; font-weight: 700; color: rgba(15,17,21,0.08); line-height: 1; margin-bottom: 12px; }
         .step-card h3 { font-size: 1.02rem; margin-bottom: 10px; }
         .step-card p { font-size: 0.9rem; color: var(--muted-light); }
+
+        /* --- ЧТО ВХОДИТ В РАБОТУ --- */
+        .scope-section { background: #fff; }
+        .scope-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+        .scope-item { display: flex; gap: 18px; align-items: flex-start; padding: 26px; border: 1px solid var(--border-light); border-radius: 14px; transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; }
+        .scope-item:hover { transform: translateY(-4px); border-color: rgba(48,72,234,0.3); box-shadow: 0 16px 32px rgba(15,17,21,0.08); }
+        .scope-num { flex-shrink: 0; font-family: 'Unbounded', sans-serif; font-size: 1.3rem; font-weight: 600; color: var(--accent); background: rgba(48,72,234,0.08); width: 46px; height: 46px; border-radius: 10px; display: flex; align-items: center; justify-content: center; }
+        .scope-item h4 { font-size: 1rem; margin-bottom: 8px; font-family: 'Manrope', sans-serif; font-weight: 800; }
+        .scope-item p { font-size: 0.9rem; color: var(--muted-light); }
 
         /* --- КЕЙС --- */
         .case-section { background: #fff; }
@@ -108,23 +121,25 @@
         .case-box h3 { font-size: 1.4rem; margin-bottom: 14px; }
         .case-box p { color: var(--muted-light); margin-bottom: 20px; }
         .case-metrics { display: flex; gap: 25px; flex-wrap: wrap; margin-bottom: 25px; }
-        .case-metric b { display: block; font-family: 'Space Grotesk', sans-serif; font-size: 1.5rem; color: var(--accent-hover); }
+        .case-metric b { display: block; font-family: 'Manrope', sans-serif; font-size: 1.5rem; color: var(--accent-hover); }
         .case-metric span { font-size: 0.78rem; color: var(--muted-light); text-transform: uppercase; letter-spacing: 0.5px; }
         .case-visual { background: var(--ink); border-radius: 14px; padding: 30px; color: #fff; text-align: center; }
-        .case-visual .domain { font-family: 'Space Grotesk', sans-serif; font-size: 1.3rem; color: var(--accent-dark); margin-bottom: 10px; }
+        .case-visual .domain { font-family: 'Manrope', sans-serif; font-size: 1.3rem; color: var(--accent-dark); margin-bottom: 10px; }
         .case-visual a.visit-link { display: inline-block; margin-top: 15px; color: #fff; text-decoration: none; border: 1px solid rgba(255,255,255,0.2); padding: 12px 24px; border-radius: 8px; font-size: 0.85rem; font-weight: 700; transition: background 0.2s; }
         .case-visual a.visit-link:hover { background: rgba(255,255,255,0.1); }
 
         /* --- ТАРИФЫ --- */
         .pricing-section { background: var(--bg-light); }
         .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; align-items: stretch; }
-        .price-card { background: #fff; border: 1px solid var(--border-light); border-radius: 18px; padding: 34px 28px; display: flex; flex-direction: column; }
-        .price-card.featured { border: 2px solid var(--accent); position: relative; transform: translateY(-8px); box-shadow: 0 20px 40px rgba(91,91,245,0.15); }
+        .price-card { background: #fff; border: 1px solid var(--border-light); border-radius: 18px; padding: 34px 28px; display: flex; flex-direction: column; transition: transform 0.35s ease, box-shadow 0.35s ease; }
+        .price-card:hover { transform: translateY(-6px); box-shadow: 0 20px 40px rgba(15,17,21,0.1); }
+        .price-card.featured:hover { transform: translateY(-14px); }
+        .price-card.featured { border: 2px solid var(--accent); position: relative; transform: translateY(-8px); box-shadow: 0 20px 40px rgba(48,72,234,0.15); }
         .price-badge { position: absolute; top: -13px; left: 50%; transform: translateX(-50%); background: var(--accent); color: #fff; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; padding: 5px 14px; border-radius: 20px; }
         .price-card h3 { font-size: 1.15rem; margin-bottom: 6px; }
         .price-card .price-tagline { font-size: 0.85rem; color: var(--muted-light); margin-bottom: 22px; }
         .price-row { display: flex; align-items: baseline; gap: 8px; margin-bottom: 4px; }
-        .price-row .price-num { font-family: 'Space Grotesk', sans-serif; font-size: 1.7rem; font-weight: 700; }
+        .price-row .price-num { font-family: 'Manrope', sans-serif; font-size: 1.7rem; font-weight: 700; }
         .price-row .price-unit { font-size: 0.8rem; color: var(--muted-light); }
         .price-sub { font-size: 0.82rem; color: var(--muted-light); margin-bottom: 22px; padding-bottom: 22px; border-bottom: 1px solid var(--border-light); }
         .price-features { list-style: none; display: flex; flex-direction: column; gap: 12px; margin-bottom: 28px; flex-grow: 1; }
@@ -135,15 +150,15 @@
         .price-card:not(.featured) .btn-primary:hover { background: var(--ink-light); }
 
         .ai-addon { background: #fff; border: 1px dashed var(--accent); border-radius: 16px; padding: 28px 32px; margin-top: 30px; display: flex; align-items: center; gap: 24px; flex-wrap: wrap; }
-        .ai-addon-icon { flex-shrink: 0; width: 52px; height: 52px; border-radius: 12px; background: rgba(91,91,245,0.1); color: var(--accent-hover); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; }
+        .ai-addon-icon { flex-shrink: 0; width: 52px; height: 52px; border-radius: 12px; background: rgba(48,72,234,0.1); color: var(--accent-hover); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; }
         .ai-addon h4 { font-size: 1.05rem; margin-bottom: 6px; }
         .ai-addon p { font-size: 0.88rem; color: var(--muted-light); }
-        .ai-addon .price-tag { margin-left: auto; text-align: right; font-family: 'Space Grotesk', sans-serif; font-weight: 700; white-space: nowrap; }
+        .ai-addon .price-tag { margin-left: auto; text-align: right; font-family: 'Manrope', sans-serif; font-weight: 700; white-space: nowrap; }
         .ai-addon .price-tag span { display: block; font-size: 0.75rem; color: var(--muted-light); font-weight: 400; font-family: 'Manrope', sans-serif; }
 
         /* --- FAQ --- */
         .faq-item { border-bottom: 1px solid var(--border-light); padding: 22px 0; }
-        .faq-item summary { font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 1.02rem; cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 20px; }
+        .faq-item summary { font-family: 'Manrope', sans-serif; font-weight: 600; font-size: 1.02rem; cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 20px; }
         .faq-item summary::-webkit-details-marker { display: none; }
         .faq-item summary::after { content: "+"; font-size: 1.5rem; font-weight: 300; color: var(--accent-hover); flex-shrink: 0; }
         .faq-item[open] summary::after { content: "\2013"; }
@@ -170,11 +185,38 @@
 
         /* --- ФУТЕР --- */
         footer { background-color: var(--ink); border-top: 1px solid var(--border-dark); padding: 40px 0; text-align: center; color: var(--muted-dark); font-size: 0.85rem; }
-        .footer-logo { font-family: 'Space Grotesk', sans-serif; font-size: 1.1rem; color: #fff; margin-bottom: 10px; font-weight: 700; }
+        .footer-logo { font-family: 'Manrope', sans-serif; font-size: 1.1rem; color: #fff; margin-bottom: 10px; font-weight: 700; }
+
+        /* --- SCROLL REVEAL --- */
+        .reveal { opacity: 0; transform: translateY(36px); }
+        .reveal.reveal-ready { transition: opacity 0.8s ease, transform 0.8s ease; }
+
+        /* --- КАСТОМНЫЙ КУРСОР --- */
+        .cursor-dot, .cursor-ring {
+            position: fixed; top: 0; left: 0; pointer-events: none; z-index: 9999;
+            border-radius: 50%; transform: translate(-50%, -50%);
+        }
+        .cursor-dot { width: 8px; height: 8px; background: var(--accent); }
+        .cursor-ring { width: 36px; height: 36px; border: 1.5px solid rgba(48,72,234,0.5); transition: width 0.25s ease, height 0.25s ease, border-color 0.25s ease; }
+        .cursor-ring.hover { width: 56px; height: 56px; border-color: var(--accent); }
+        body.has-custom-cursor, body.has-custom-cursor a, body.has-custom-cursor button { cursor: none; }
+
+        /* --- HERO PARALLAX --- */
+        .hero-section { will-change: transform; }
+        .hero-parallax-layer { transition: transform 0.1s linear; }
+
+        /* --- MAGNETIC BUTTONS --- */
+        [data-magnetic] { display: inline-flex; will-change: transform; }
+
+        @media (hover: none), (max-width: 900px) {
+            .cursor-dot, .cursor-ring { display: none !important; }
+            body.has-custom-cursor, body.has-custom-cursor a, body.has-custom-cursor button { cursor: auto; }
+        }
 
         @media (max-width: 900px) {
             .pain-grid { grid-template-columns: 1fr; }
             .steps-grid { grid-template-columns: repeat(2, 1fr); gap: 30px; }
+            .scope-grid { grid-template-columns: 1fr; }
             .case-box { grid-template-columns: 1fr; }
             .pricing-grid { grid-template-columns: 1fr; }
             .price-card.featured { transform: none; }
@@ -192,6 +234,9 @@
 </head>
 <body>
 
+    <div class="cursor-dot"></div>
+    <div class="cursor-ring"></div>
+
     <nav class="container">
         <div class="logo">
             <span class="logo-badge">⚡</span>
@@ -203,24 +248,24 @@
             <a href="#pricing">Тарифы</a>
             <a href="#faq">Вопросы</a>
         </div>
-        <a href="#lead" class="nav-cta">Оставить заявку</a>
+        <a href="#lead" class="nav-cta" data-magnetic>Оставить заявку</a>
     </nav>
 
     <header class="hero-section">
         <div class="container">
-            <div class="hero-badge">Работаем по всей России</div>
-            <h1>Сайт и реклама <span>под ключ</span> для мастеров по ремонту техники</h1>
-            <p class="lead">Делаем продающий сайт и настраиваем рекламу в Яндекс.Директ так, чтобы заявки от клиентов шли прямо вам в Telegram. Первые заявки — за 3-5 дней после запуска.</p>
+            <div class="hero-badge hero-parallax-layer" data-parallax="0.15">Работаем по всей России</div>
+            <h1 class="hero-parallax-layer" data-parallax="0.08">Сайт и реклама <span>под ключ</span> для мастеров по ремонту техники</h1>
+            <p class="lead hero-parallax-layer" data-parallax="0.05">Делаем продающий сайт и настраиваем рекламу в Яндекс.Директ так, чтобы заявки от клиентов шли прямо вам в Telegram. Первые заявки — за 3-5 дней после запуска.</p>
 
             <div class="hero-cta-row">
-                <a href="#lead" class="btn-primary">Оставить заявку</a>
-                <a href="#case" class="btn-secondary">Посмотреть живой пример</a>
+                <a href="#lead" class="btn-primary" data-magnetic>Оставить заявку</a>
+                <a href="#case" class="btn-secondary" data-magnetic>Посмотреть живой пример</a>
             </div>
 
             <div class="hero-stats">
-                <div class="hero-stat"><b>3-5 дней</b><span>До запуска рекламы</span></div>
-                <div class="hero-stat"><b>от 13 000 ₽</b><span>Сайт под ключ</span></div>
-                <div class="hero-stat"><b>Telegram</b><span>Заявки сразу вам</span></div>
+                <div class="hero-stat reveal"><b>3-5 дней</b><span>До запуска рекламы</span></div>
+                <div class="hero-stat reveal"><b>от 13 000 ₽</b><span>Сайт под ключ</span></div>
+                <div class="hero-stat reveal"><b>Telegram</b><span>Заявки сразу вам</span></div>
             </div>
         </div>
     </header>
@@ -243,19 +288,19 @@
             </div>
 
             <div class="pain-grid">
-                <div class="pain-card">
+                <div class="pain-card reveal">
                     <div class="pain-icon">📉</div>
                     <span>Клиенты приходят только по сарафанному радио — в межсезонье заказов почти нет</span>
                 </div>
-                <div class="pain-card">
+                <div class="pain-card reveal">
                     <div class="pain-icon">💸</div>
                     <span>Покупаете лиды пачками у посредников — половина оказывается нецелевой или уже "разобранной"</span>
                 </div>
-                <div class="pain-card">
+                <div class="pain-card reveal">
                     <div class="pain-icon">🕑</div>
                     <span>Нет времени разбираться в рекламных кабинетах, сайтах и аналитике — вы чините технику, а не настраиваете Директ</span>
                 </div>
-                <div class="pain-card">
+                <div class="pain-card reveal">
                     <div class="pain-icon">🤷</div>
                     <span>Непонятно, сколько реально стоит одна заявка и окупается ли реклама вообще</span>
                 </div>
@@ -271,25 +316,80 @@
             </div>
 
             <div class="steps-grid">
-                <div class="step-card">
+                <div class="step-card reveal">
                     <div class="step-number">01</div>
                     <h3>Обсуждаем нишу и город</h3>
                     <p>Узнаём, какую технику вы чините и где работаете — под это готовим сайт и семантику для рекламы.</p>
                 </div>
-                <div class="step-card">
+                <div class="step-card reveal">
                     <div class="step-number">02</div>
                     <h3>Делаем сайт</h3>
                     <p>Продающий одностраничник с формой заявки — по проверенному шаблону, который уже приносит заявки другим мастерам.</p>
                 </div>
-                <div class="step-card">
+                <div class="step-card reveal">
                     <div class="step-number">03</div>
                     <h3>Запускаем рекламу</h3>
                     <p>Настраиваем Яндекс.Директ на ваш город, подключаем аналитику — вы видите, сколько стоит каждая заявка.</p>
                 </div>
-                <div class="step-card">
+                <div class="step-card reveal">
                     <div class="step-number">04</div>
                     <h3>Заявки идут вам в Telegram</h3>
                     <p>Клиент оставляет заявку на сайте — вы получаете сообщение с именем, телефоном и описанием проблемы.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section scope-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-kicker">Что входит в работу</span>
+                <h2>Из чего складывается ваш сайт и реклама</h2>
+                <p>Никакой магии — конкретные шаги, каждый из которых влияет на то, сколько будет стоить заявка</p>
+            </div>
+
+            <div class="scope-grid">
+                <div class="scope-item reveal">
+                    <div class="scope-num">01</div>
+                    <div>
+                        <h4>Разбор ниши и конкурентов</h4>
+                        <p>Смотрим, кто уже рекламируется в вашем городе, что предлагают, по каким ценам — чтобы выделиться, а не слиться с толпой.</p>
+                    </div>
+                </div>
+                <div class="scope-item reveal">
+                    <div class="scope-num">02</div>
+                    <div>
+                        <h4>Текст и структура сайта</h4>
+                        <p>Пишем текст под ваши услуги и город — не общие фразы, а конкретные боли и выгоды клиента, который ищет мастера прямо сейчас.</p>
+                    </div>
+                </div>
+                <div class="scope-item reveal">
+                    <div class="scope-num">03</div>
+                    <div>
+                        <h4>Вёрстка и адаптация</h4>
+                        <p>Собираем сайт по проверенному шаблону — он одинаково хорошо выглядит и с телефона, и с компьютера.</p>
+                    </div>
+                </div>
+                <div class="scope-item reveal">
+                    <div class="scope-num">04</div>
+                    <div>
+                        <h4>Подключение аналитики</h4>
+                        <p>Ставим счётчик Яндекс.Метрики и цели на заявки — вы с первого дня видите, сколько людей заходит и сколько оставляет заявку.</p>
+                    </div>
+                </div>
+                <div class="scope-item reveal">
+                    <div class="scope-num">05</div>
+                    <div>
+                        <h4>Сбор семантики для рекламы</h4>
+                        <p>Подбираем запросы, по которым вас будут находить: от общих («ремонт холодильников город») до конкретных симптомов поломки.</p>
+                    </div>
+                </div>
+                <div class="scope-item reveal">
+                    <div class="scope-num">06</div>
+                    <div>
+                        <h4>Запуск и первая неделя ведения</h4>
+                        <p>Запускаем кампанию, следим за первыми показами и кликами, донастраиваем ставки и минус-слова, чтобы не сливать бюджет впустую.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -303,7 +403,7 @@
                 <p>Это не портфолио-заглушка — сайт реально работает и получает заявки прямо сейчас</p>
             </div>
 
-            <div class="case-box">
+            <div class="case-box reveal">
                 <div>
                     <h3>РемТех Сургут — ремонт холодильников</h3>
                     <p>Одностраничный сайт с формой заявки, интеграцией в Telegram и рекламой в Яндекс.Директ. Запущен и работает по Сургуту.</p>
@@ -331,7 +431,7 @@
             </div>
 
             <div class="pricing-grid">
-                <div class="price-card">
+                <div class="price-card reveal">
                     <h3>Старт</h3>
                     <p class="price-tagline">Попробовать без большого риска</p>
                     <div class="price-row"><span class="price-num">13 000 ₽</span><span class="price-unit">разово</span></div>
@@ -343,10 +443,10 @@
                         <li>Счётчик Метрики + 2 цели</li>
                         <li>Заявки — сразу в Telegram</li>
                     </ul>
-                    <a href="#lead" class="btn-primary">Выбрать «Старт»</a>
+                    <a href="#lead" class="btn-primary" data-magnetic>Выбрать «Старт»</a>
                 </div>
 
-                <div class="price-card featured">
+                <div class="price-card featured reveal">
                     <span class="price-badge">Популярный выбор</span>
                     <h3>Стандарт</h3>
                     <p class="price-tagline">Стабильный поток заявок</p>
@@ -359,10 +459,10 @@
                         <li>Ежемесячный отчёт по заявкам и их цене</li>
                         <li>Корректировка ставок под лучшие запросы</li>
                     </ul>
-                    <a href="#lead" class="btn-primary">Выбрать «Стандарт»</a>
+                    <a href="#lead" class="btn-primary" data-magnetic>Выбрать «Стандарт»</a>
                 </div>
 
-                <div class="price-card">
+                <div class="price-card reveal">
                     <h3>PRO</h3>
                     <p class="price-tagline">Для загруженных мастеров и бригад</p>
                     <div class="price-row"><span class="price-num">38 000 ₽</span><span class="price-unit">разово</span></div>
@@ -374,11 +474,11 @@
                         <li>Приоритетные правки — в течение суток</li>
                         <li>Тестирование новых текстов объявлений</li>
                     </ul>
-                    <a href="#lead" class="btn-primary">Выбрать «PRO»</a>
+                    <a href="#lead" class="btn-primary" data-magnetic>Выбрать «PRO»</a>
                 </div>
             </div>
 
-            <div class="ai-addon">
+            <div class="ai-addon reveal">
                 <div class="ai-addon-icon">🤖</div>
                 <div>
                     <h4>AI-ассистент в чате на сайте</h4>
@@ -396,27 +496,27 @@
                 <h2>Частые вопросы</h2>
             </div>
 
-            <details class="faq-item" open>
+            <details class="faq-item reveal" open>
                 <summary>Кто платит за рекламный бюджет в Яндекс.Директе?</summary>
                 <p>Рекламный бюджет вы оплачиваете напрямую в Яндекс.Директ, отдельно от наших тарифов. Мы берём оплату только за создание сайта и ведение кампании — не за клики и показы.</p>
             </details>
 
-            <details class="faq-item">
+            <details class="faq-item reveal">
                 <summary>Сколько ждать первую заявку?</summary>
                 <p>Сайт делаем за 2-3 дня, запуск рекламы — ещё 1-2 дня на модерацию в Яндексе. Первые заявки обычно приходят в течение первой недели после запуска, но точные сроки зависят от вашего города и ниши.</p>
             </details>
 
-            <details class="faq-item">
+            <details class="faq-item reveal">
                 <summary>Сколько стоит одна заявка от клиента?</summary>
                 <p>Зависит от города и конкуренции в нише — обычно от 300 до 1500 ₽. Вы видите точную цифру в своей Яндекс.Метрике, мы ничего не скрываем и не накручиваем.</p>
             </details>
 
-            <details class="faq-item">
+            <details class="faq-item reveal">
                 <summary>Можно ли начать с малого и потом перейти на тариф выше?</summary>
                 <p>Да, большинство клиентов начинают с «Старт» или «Стандарт», а через 1-2 месяца, увидев результат, переходят на тариф выше — доплачиваете только разницу.</p>
             </details>
 
-            <details class="faq-item">
+            <details class="faq-item reveal">
                 <summary>Это франшиза? Нужно платить паушальный взнос?</summary>
                 <p>Нет, это не франшиза. Вы платите только за конкретную услугу — сайт и ведение рекламы, без вступительных взносов и роялти с оборота.</p>
             </details>
@@ -425,7 +525,7 @@
 
     <section class="section lead-section" id="lead">
         <div class="container">
-            <div class="lead-box">
+            <div class="lead-box reveal">
                 <h3 class="display-text">Оставьте заявку</h3>
                 <p class="lead-desc">Расскажите, какую технику чините и в каком городе работаете — свяжемся и обсудим детали.</p>
 
@@ -552,6 +652,136 @@
                 });
 
             return false;
+        }
+    </script>
+
+    <script>
+        // --- Плавное появление блоков при скролле ---
+        (function initReveal() {
+            const items = document.querySelectorAll('.reveal');
+            const canAnimate = typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined';
+
+            if (!canAnimate) {
+                items.forEach(el => el.style.opacity = 1);
+                return;
+            }
+
+            gsap.registerPlugin(ScrollTrigger);
+            items.forEach(el => el.classList.add('reveal-ready'));
+
+            items.forEach((el, i) => {
+                gsap.to(el, {
+                    opacity: 1,
+                    y: 0,
+                    duration: 0.8,
+                    ease: 'power2.out',
+                    delay: (i % 4) * 0.08,
+                    scrollTrigger: {
+                        trigger: el,
+                        start: 'top 88%',
+                        toggleActions: 'play none none none',
+                    },
+                });
+            });
+        })();
+
+        // --- Кастомный курсор ---
+        (function initCustomCursor() {
+            const isFinePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+            if (!isFinePointer) return;
+
+            const dot = document.querySelector('.cursor-dot');
+            const ring = document.querySelector('.cursor-ring');
+            if (!dot || !ring) return;
+
+            document.body.classList.add('has-custom-cursor');
+
+            let mouseX = window.innerWidth / 2, mouseY = window.innerHeight / 2;
+            let ringX = mouseX, ringY = mouseY;
+
+            window.addEventListener('mousemove', (e) => {
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+                dot.style.left = mouseX + 'px';
+                dot.style.top = mouseY + 'px';
+            });
+
+            function animateRing() {
+                ringX += (mouseX - ringX) * 0.18;
+                ringY += (mouseY - ringY) * 0.18;
+                ring.style.left = ringX + 'px';
+                ring.style.top = ringY + 'px';
+                requestAnimationFrame(animateRing);
+            }
+            animateRing();
+
+            const interactiveSelector = 'a, button, summary, input, textarea, select, [data-magnetic]';
+            document.querySelectorAll(interactiveSelector).forEach(el => {
+                el.addEventListener('mouseenter', () => ring.classList.add('hover'));
+                el.addEventListener('mouseleave', () => ring.classList.remove('hover'));
+            });
+        })();
+
+        // --- Magnetic-кнопки ---
+        (function initMagneticButtons() {
+            const isFinePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+            if (!isFinePointer) return;
+
+            document.querySelectorAll('[data-magnetic]').forEach(el => {
+                el.addEventListener('mousemove', (e) => {
+                    const rect = el.getBoundingClientRect();
+                    const relX = e.clientX - rect.left - rect.width / 2;
+                    const relY = e.clientY - rect.top - rect.height / 2;
+                    el.style.transform = `translate(${relX * 0.25}px, ${relY * 0.35}px)`;
+                });
+                el.addEventListener('mouseleave', () => {
+                    el.style.transform = 'translate(0, 0)';
+                });
+            });
+        })();
+
+        // --- Лёгкий параллакс в hero ---
+        (function initHeroParallax() {
+            const layers = document.querySelectorAll('.hero-parallax-layer');
+            const isFinePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+            if (!layers.length || !isFinePointer) return;
+
+            const heroSection = document.querySelector('.hero-section');
+            if (!heroSection) return;
+
+            heroSection.addEventListener('mousemove', (e) => {
+                const rect = heroSection.getBoundingClientRect();
+                const relX = (e.clientX - rect.left - rect.width / 2) / rect.width;
+                const relY = (e.clientY - rect.top - rect.height / 2) / rect.height;
+
+                layers.forEach(layer => {
+                    const strength = parseFloat(layer.dataset.parallax || 0.05) * 40;
+                    layer.style.transform = `translate(${relX * strength}px, ${relY * strength}px)`;
+                });
+            });
+
+            heroSection.addEventListener('mouseleave', () => {
+                layers.forEach(layer => { layer.style.transform = 'translate(0, 0)'; });
+            });
+        })();
+    </script>
+
+    <!-- Всплывающая плашка Cookie -->
+    <div id="cookie-banner" style="display: none; position: fixed; bottom: 0; left: 0; width: 100%; background: #030202; color: #fff; padding: 15px 20px; z-index: 9999; text-align: center; box-sizing: border-box; font-family: 'Manrope', sans-serif; font-size: 14px; box-shadow: 0 -4px 10px rgba(0,0,0,0.25);">
+        Мы используем файлы cookie и сервисы аналитики для улучшения работы сайта. Продолжая пользоваться сайтом, вы соглашаетесь с <a href="policy.html" style="color: #5f74ff; text-decoration: underline;">Политикой обработки персональных данных</a>.
+        <button onclick="acceptCookies()" style="margin-left: 15px; background: #3048ea; color: #fff; border: none; padding: 8px 20px; border-radius: 6px; cursor: pointer; font-weight: 700; font-family: 'Manrope', sans-serif;">Понятно</button>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            if (!localStorage.getItem("cookiesAccepted")) {
+                document.getElementById("cookie-banner").style.display = "block";
+            }
+        });
+
+        function acceptCookies() {
+            localStorage.setItem("cookiesAccepted", "true");
+            document.getElementById("cookie-banner").style.display = "none";
         }
     </script>
 
