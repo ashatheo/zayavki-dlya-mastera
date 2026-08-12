@@ -144,6 +144,21 @@
         .case-visual a.visit-link { display: inline-block; margin-top: 15px; color: #fff; text-decoration: none; border: 1px solid rgba(255,255,255,0.2); padding: 12px 24px; border-radius: 8px; font-size: 0.85rem; font-weight: 700; transition: background 0.2s; }
         .case-visual a.visit-link:hover { background: rgba(255,255,255,0.1); }
 
+        .case-numbers { background: var(--ink); color: #fff; border-radius: 18px; padding: 40px; margin-top: 24px; }
+        .case-numbers-header h3 { font-size: 1.3rem; margin-bottom: 8px; }
+        .case-numbers-header p { color: var(--muted-dark); font-size: 0.9rem; margin-bottom: 30px; }
+        .case-numbers-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-bottom: 30px; }
+        .case-num-item { background: var(--ink-panel); border: 1px solid var(--border-dark); border-radius: 12px; padding: 20px; }
+        .case-num-item b { display: block; font-family: 'Unbounded', sans-serif; font-size: 1.4rem; font-weight: 600; color: var(--accent-dark); margin-bottom: 8px; }
+        .case-num-item span { font-size: 0.8rem; color: var(--muted-dark); line-height: 1.4; display: block; }
+        .case-numbers-result { display: flex; align-items: center; justify-content: center; gap: 20px; flex-wrap: wrap; background: var(--ink-panel); border-radius: 14px; padding: 28px; margin-bottom: 20px; }
+        .case-numbers-result > div:not(.case-result-minus):not(.case-result-eq) { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+        .case-result-label { font-size: 0.78rem; color: var(--muted-dark); text-transform: uppercase; letter-spacing: 0.5px; }
+        .case-result-value { font-family: 'Unbounded', sans-serif; font-size: 1.3rem; font-weight: 600; }
+        .case-result-minus, .case-result-eq { font-size: 1.5rem; color: var(--muted-dark); font-weight: 300; }
+        .case-result-final .case-result-value { color: var(--success); font-size: 1.7rem; }
+        .case-numbers-note { font-size: 0.88rem; color: var(--muted-dark); text-align: center; }
+
         /* --- ТАРИФЫ --- */
         .pricing-section { background: var(--bg-light); }
         .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; align-items: stretch; }
@@ -235,6 +250,7 @@
             .scope-grid { grid-template-columns: 1fr; }
             .compare-grid { grid-template-columns: 1fr; }
             .case-box { grid-template-columns: 1fr; }
+            .case-numbers-grid { grid-template-columns: repeat(2, 1fr); }
             .pricing-grid { grid-template-columns: 1fr; }
             .price-card.featured { transform: none; }
         }
@@ -243,6 +259,10 @@
             .nav-links { display: none; }
             .trust-bar .container { grid-template-columns: repeat(2, 1fr); }
             .section { padding: 60px 0; }
+            .case-numbers { padding: 28px 20px; }
+            .case-numbers-grid { grid-template-columns: 1fr; }
+            .case-numbers-result { flex-direction: column; }
+            .case-result-minus, .case-result-eq { font-size: 1.1rem; }
             .lead-box { padding: 30px 22px; }
             .ai-addon { flex-direction: column; text-align: center; }
             .ai-addon .price-tag { margin-left: 0; text-align: center; }
@@ -479,6 +499,48 @@
                     <div style="font-size: 0.85rem; color: var(--muted-dark);">Живой сайт с рекламной кампанией</div>
                     <a href="https://рембыт86.рф" target="_blank" rel="noopener" class="visit-link">Открыть сайт →</a>
                 </div>
+            </div>
+
+            <div class="case-numbers reveal">
+                <div class="case-numbers-header">
+                    <h3>климат86.рф — установка кондиционеров, 3 недели рекламы</h3>
+                    <p>Реальные цифры из рекламного кабинета Яндекс.Директ, кампания запущена 16.07.2026</p>
+                </div>
+                <div class="case-numbers-grid">
+                    <div class="case-num-item">
+                        <b>15 841 ₽</b>
+                        <span>Потрачено на рекламу за 3 недели</span>
+                    </div>
+                    <div class="case-num-item">
+                        <b>~1 300 ₽</b>
+                        <span>Цена звонка в разгар сезона</span>
+                    </div>
+                    <div class="case-num-item">
+                        <b>6</b>
+                        <span>Закрытых установок сплит-систем</span>
+                    </div>
+                    <div class="case-num-item">
+                        <b>33 000 ₽</b>
+                        <span>Средний чек за установку</span>
+                    </div>
+                </div>
+                <div class="case-numbers-result">
+                    <div>
+                        <span class="case-result-label">Выручка за 3 недели</span>
+                        <span class="case-result-value">198 000 ₽</span>
+                    </div>
+                    <div class="case-result-minus">−</div>
+                    <div>
+                        <span class="case-result-label">Расход на рекламу</span>
+                        <span class="case-result-value">15 841 ₽</span>
+                    </div>
+                    <div class="case-result-eq">=</div>
+                    <div class="case-result-final">
+                        <span class="case-result-label">Выручка за вычетом рекламы</span>
+                        <span class="case-result-value">182 159 ₽</span>
+                    </div>
+                </div>
+                <p class="case-numbers-note">Это выручка за вычетом расходов на рекламу — без учёта запчастей, материалов и других издержек мастера на установку. Реклама окупилась в первую же неделю теста.</p>
             </div>
         </div>
     </section>
