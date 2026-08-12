@@ -55,6 +55,18 @@
         .nav-cta { background: var(--accent); color: #fff; text-decoration: none; padding: 10px 20px; border-radius: 8px; font-size: 0.85rem; font-weight: 700; transition: background 0.2s; }
         .nav-cta:hover { background: var(--accent-hover); }
 
+        /* --- ВСТУПИТЕЛЬНЫЙ ТЕКСТ С BLUR-ПРОЯВЛЕНИЕМ ПРИ СКРОЛЛЕ --- */
+        .intro-flow-section { background: var(--bg-light); padding: 100px 0; }
+        .intro-block { max-width: 820px; margin: 0 auto; padding: 60px 0; }
+        .intro-flow {
+            opacity: 0.15; filter: blur(6px); transform: translateY(24px);
+            transition: opacity 0.7s ease, filter 0.7s ease, transform 0.7s ease;
+        }
+        .intro-flow.in-view { opacity: 1; filter: blur(0); transform: translateY(0); }
+        .intro-flow-kicker { font-family: 'Unbounded', sans-serif; font-size: 0.9rem; font-weight: 600; color: var(--accent); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 16px; }
+        .intro-flow-text { font-family: 'Unbounded', sans-serif; font-size: clamp(1.15rem, 2.2vw, 1.6rem); font-weight: 500; line-height: 1.6; letter-spacing: -0.3px; color: var(--text-light-bg); }
+        .intro-accent { color: var(--accent); }
+
         /* --- HERO --- */
         .hero-section { background: radial-gradient(circle at 20% 10%, var(--ink-light), var(--ink) 60%); color: #fff; padding: 90px 0 70px 0; position: relative; overflow: hidden; }
         .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(48,72,234,0.15); border: 1px solid rgba(48,72,234,0.4); color: var(--accent-dark); font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; padding: 8px 16px; border-radius: 30px; margin-bottom: 25px; }
@@ -101,6 +113,7 @@
 
         /* --- КАК РАБОТАЕТ --- */
         .steps-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 25px; }
+        .steps-grid-6 { grid-template-columns: repeat(3, 1fr); }
         .step-card { position: relative; padding-top: 10px; }
         .step-number { font-family: 'Manrope', sans-serif; font-size: 2.4rem; font-weight: 700; color: rgba(15,17,21,0.08); line-height: 1; margin-bottom: 12px; }
         .step-card h3 { font-size: 1.02rem; margin-bottom: 10px; }
@@ -116,6 +129,19 @@
         .scope-item p { font-size: 0.9rem; color: var(--muted-light); }
 
         /* --- СВОЁ VS ЧУЖОЕ --- */
+        /* --- ОКНО ОТЗЫВОВ (TELEGRAM-СТИЛЬ) --- */
+        .reviews-preview-section { background: #fff; }
+        .tg-window { max-width: 640px; margin: 0 auto; background: #eef0f3; border-radius: 18px; overflow: hidden; box-shadow: 0 20px 50px rgba(15,17,21,0.12); }
+        .tg-window-header { display: flex; align-items: center; gap: 8px; padding: 16px 20px; background: #dfe2e8; }
+        .tg-dot { width: 11px; height: 11px; border-radius: 50%; background: #c3c7cf; }
+        .tg-window-title { flex-grow: 1; text-align: center; font-size: 0.85rem; color: var(--muted-light); font-weight: 600; margin-right: 40px; }
+        .tg-window-body { height: 320px; overflow-y: hidden; padding: 20px; display: flex; flex-direction: column; gap: 16px; position: relative; }
+        .tg-msg { display: flex; gap: 12px; align-items: flex-start; }
+        .tg-avatar { flex-shrink: 0; width: 38px; height: 38px; border-radius: 50%; color: #fff; font-family: 'Unbounded', sans-serif; font-weight: 600; font-size: 0.9rem; display: flex; align-items: center; justify-content: center; }
+        .tg-bubble { background: #fff; border-radius: 14px; padding: 12px 16px; box-shadow: 0 2px 6px rgba(15,17,21,0.06); max-width: 460px; }
+        .tg-author { font-size: 0.85rem; font-weight: 700; margin-bottom: 4px; }
+        .tg-bubble p { font-size: 0.88rem; color: var(--text-light-bg); line-height: 1.5; }
+
         .compare-section { background: var(--bg-light); }
         .compare-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-bottom: 24px; }
         .compare-card { background: #fff; border: 1px solid var(--border-light); border-radius: 16px; padding: 28px; }
@@ -172,6 +198,7 @@
         .price-row { display: flex; align-items: baseline; gap: 8px; margin-bottom: 4px; }
         .price-row .price-num { font-family: 'Manrope', sans-serif; font-size: 1.7rem; font-weight: 700; }
         .price-row .price-unit { font-size: 0.8rem; color: var(--muted-light); }
+        .price-split { font-size: 0.8rem; color: var(--accent-hover); font-weight: 600; margin-bottom: 10px; }
         .price-sub { font-size: 0.82rem; color: var(--muted-light); margin-bottom: 22px; padding-bottom: 22px; border-bottom: 1px solid var(--border-light); }
         .price-features { list-style: none; display: flex; flex-direction: column; gap: 12px; margin-bottom: 28px; flex-grow: 1; }
         .price-features li { font-size: 0.88rem; display: flex; align-items: flex-start; gap: 10px; color: var(--text-light-bg); }
@@ -186,6 +213,12 @@
         .ai-addon p { font-size: 0.88rem; color: var(--muted-light); }
         .ai-addon .price-tag { margin-left: auto; text-align: right; font-family: 'Manrope', sans-serif; font-weight: 700; white-space: nowrap; }
         .ai-addon .price-tag span { display: block; font-size: 0.75rem; color: var(--muted-light); font-weight: 400; font-family: 'Manrope', sans-serif; }
+
+        .budget-notice { background: var(--bg-light); border: 1px solid var(--border-light); border-radius: 16px; padding: 24px 32px; margin-top: 20px; display: flex; align-items: flex-start; gap: 20px; }
+        .budget-notice-icon { flex-shrink: 0; width: 48px; height: 48px; border-radius: 12px; background: #fff; box-shadow: 0 4px 10px rgba(15,17,21,0.06); display: flex; align-items: center; justify-content: center; font-size: 1.3rem; }
+        .budget-notice h4 { font-size: 1rem; margin-bottom: 6px; }
+        .budget-notice p { font-size: 0.88rem; color: var(--muted-light); }
+        .budget-notice p b { color: var(--text-light-bg); }
 
         /* --- FAQ --- */
         .faq-item { border-bottom: 1px solid var(--border-light); padding: 22px 0; }
@@ -288,6 +321,42 @@
         <a href="#lead" class="nav-cta" data-magnetic>Оставить заявку</a>
     </nav>
 
+    <section class="intro-flow-section">
+        <div class="container">
+            <div class="intro-block intro-flow">
+                <p class="intro-flow-text">Вы просыпаетесь утром, берёте телефон и ждёте нормальных заявок. Но вместо этого начинается привычная рутина.</p>
+            </div>
+            <div class="intro-block intro-flow">
+                <p class="intro-flow-kicker">«Авито-лотерея»</p>
+                <p class="intro-flow-text">Звонит клиент. Вы называете адекватную цену за установку сплит-системы или ремонт холодильника, а в ответ слышите: <span class="intro-accent">«Ой, а мне тут студент Вася за 500 рублей пообещал сделать»</span>. На Авито все ищут халяву. Вы либо снижаете цену и работаете ради работы, либо сидите без заказов.</p>
+            </div>
+            <div class="intro-block intro-flow">
+                <p class="intro-flow-kicker">Кабала агрегаторов</p>
+                <p class="intro-flow-text">Чтобы не сидеть без дела, вы берёте заказы у посредников. Едете через весь город, чините сложную поломку, выслушиваете капризы клиента... А потом отдаёте <span class="intro-accent">от 40 до 70% своего заработка</span> «дяде», который просто передал вам номер телефона.</p>
+            </div>
+            <div class="intro-block intro-flow">
+                <p class="intro-flow-kicker">Сарафанное радио, которое постоянно «ломается»</p>
+                <p class="intro-flow-text">Да, вас рекомендуют. Но сарафан — это непредсказуемо. На этой неделе густо, а на следующей — тишина. Аренду, инструмент и расходники нужно оплачивать <span class="intro-accent">каждый месяц</span>, а не только тогда, когда знакомые вспомнили ваш номер.</p>
+            </div>
+            <div class="intro-block intro-flow">
+                <p class="intro-flow-text">Вы первоклассный мастер. Вы знаете своё дело от и до. Но почему-то каждый день приходится <span class="intro-accent">бороться за копейки</span> с демпингующими новичками или отдавать львиную долю дохода посредникам.</p>
+            </div>
+            <div class="intro-block intro-flow">
+                <p class="intro-flow-kicker">💡 А теперь представьте другой сценарий</p>
+                <p class="intro-flow-text">Вам звонит клиент. Он не торгуется за каждую сотню рублей, потому что изначально искал профессионала, а не самую низкую цену. Он готов платить за качество, гарантию и ваш опыт. И самое главное — <span class="intro-accent">все 100% денег с этого заказа остаются у вас в кармане</span>.</p>
+            </div>
+            <div class="intro-block intro-flow">
+                <p class="intro-flow-text">Это не сказка. Это результат грамотно настроенной системы привлечения клиентов, которая работает лично на вас. <span class="intro-accent">Мы знаем, как находить клиентов для мастеров</span> по ремонту холодильников, стиральных машин и установке кондиционеров.</p>
+            </div>
+            <div class="intro-block intro-flow">
+                <p class="intro-flow-text">Свой сайт и точечная реклама — это ваш личный отдел продаж: он <span class="intro-accent">отсекает «халявщиков»</span>, делает вас независимым от кабальных условий агрегаторов и обеспечивает стабильность — включили рекламу, пошли звонки.</p>
+            </div>
+            <div class="intro-block intro-flow">
+                <p class="intro-flow-text">Хватит работать на посредников и сливать время на пустые разговоры с Авито. Пора работать на себя, забирать лучших клиентов в городе и зарабатывать столько, сколько действительно стоят ваши навыки.</p>
+            </div>
+        </div>
+    </section>
+
     <header class="hero-section">
         <div class="container">
             <div class="hero-badge hero-parallax-layer" data-parallax="0.15">Работаем по всей России</div>
@@ -301,7 +370,7 @@
 
             <div class="hero-stats">
                 <div class="hero-stat reveal"><b>3-5 дней</b><span>До запуска рекламы</span></div>
-                <div class="hero-stat reveal"><b>от 13 000 ₽</b><span>Сайт под ключ</span></div>
+                <div class="hero-stat reveal"><b>от 26 000 ₽</b><span>Сайт под ключ, 50/50</span></div>
                 <div class="hero-stat reveal"><b>Telegram</b><span>Заявки сразу вам</span></div>
             </div>
         </div>
@@ -356,30 +425,40 @@
     <section class="section" id="how">
         <div class="container">
             <div class="section-header">
-                <span class="section-kicker">Как это устроено</span>
-                <h2>От заявки до потока клиентов — 4 шага</h2>
+                <span class="section-kicker">Как будем вести проект</span>
+                <h2>От заявки до потока клиентов — 6 шагов</h2>
             </div>
 
-            <div class="steps-grid">
+            <div class="steps-grid steps-grid-6">
                 <div class="step-card reveal">
                     <div class="step-number">01</div>
+                    <h3>Заявка на разработку</h3>
+                    <p>Вы оставляете заявку на сайте, мы связываемся и отвечаем на все вопросы про сайт, рекламу и сроки.</p>
+                </div>
+                <div class="step-card reveal">
+                    <div class="step-number">02</div>
                     <h3>Обсуждаем нишу и город</h3>
                     <p>Узнаём, какую технику вы чините и где работаете — под это готовим сайт и семантику для рекламы.</p>
                 </div>
                 <div class="step-card reveal">
-                    <div class="step-number">02</div>
-                    <h3>Делаем сайт</h3>
-                    <p>Продающий одностраничник с формой заявки — по проверенному шаблону, который уже приносит заявки другим мастерам.</p>
-                </div>
-                <div class="step-card reveal">
                     <div class="step-number">03</div>
-                    <h3>Запускаем рекламу</h3>
-                    <p>Настраиваем Яндекс.Директ на ваш город, подключаем аналитику — вы видите, сколько стоит каждая заявка.</p>
+                    <h3>Предоплата 50%</h3>
+                    <p>Вносите половину стоимости тарифа — начинаем работу над сайтом и настройкой рекламы.</p>
                 </div>
                 <div class="step-card reveal">
                     <div class="step-number">04</div>
+                    <h3>Делаем сайт и запускаем рекламу</h3>
+                    <p>Собираем сайт по проверенному шаблону, настраиваем Яндекс.Директ на ваш город и подключаем аналитику.</p>
+                </div>
+                <div class="step-card reveal">
+                    <div class="step-number">05</div>
                     <h3>Заявки идут вам в Telegram</h3>
                     <p>Клиент оставляет заявку на сайте — вы получаете сообщение с именем, телефоном и описанием проблемы.</p>
+                </div>
+                <div class="step-card reveal">
+                    <div class="step-number">06</div>
+                    <h3>Вторая половина оплаты</h3>
+                    <p>После первых 5 заявок с сайта вносите оставшиеся 50% — дальше просто продолжаем вести рекламу по подписке.</p>
                 </div>
             </div>
         </div>
@@ -434,6 +513,46 @@
                     <div>
                         <h4>Запуск и первая неделя ведения</h4>
                         <p>Запускаем кампанию, следим за первыми показами и кликами, донастраиваем ставки и минус-слова, чтобы не сливать бюджет впустую.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section reviews-preview-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-kicker">Пример оформления</span>
+                <h2>Так будут выглядеть отзывы наших клиентов</h2>
+                <p>Сайт только запущен — здесь появятся настоящие сообщения от мастеров, когда наберутся первые результаты</p>
+            </div>
+
+            <div class="tg-window reveal">
+                <div class="tg-window-header">
+                    <span class="tg-dot"></span><span class="tg-dot"></span><span class="tg-dot"></span>
+                    <span class="tg-window-title">Телеграм</span>
+                </div>
+                <div class="tg-window-body" id="tgReviewsBody">
+                    <div class="tg-msg">
+                        <div class="tg-avatar" style="background:#3048ea;">Н</div>
+                        <div class="tg-bubble">
+                            <div class="tg-author" style="color:#3048ea;">Никита, установка кондиционеров</div>
+                            <p>Так может выглядеть сообщение от мастера — короткий отзыв о том, как идут заявки с сайта.</p>
+                        </div>
+                    </div>
+                    <div class="tg-msg">
+                        <div class="tg-avatar" style="background:#22c55e;">М</div>
+                        <div class="tg-bubble">
+                            <div class="tg-author" style="color:#22c55e;">Мастер, ремонт техники</div>
+                            <p>Здесь появится отзыв о том, окупилась ли реклама и насколько удобно получать заявки в Telegram.</p>
+                        </div>
+                    </div>
+                    <div class="tg-msg">
+                        <div class="tg-avatar" style="background:#f59e0b;">А</div>
+                        <div class="tg-bubble">
+                            <div class="tg-author" style="color:#f59e0b;">Мастер, установка сплит-систем</div>
+                            <p>Пример того, как коротко и по делу пишут клиенты — без длинных сочинений, в 2-3 строки.</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -550,14 +669,15 @@
             <div class="section-header">
                 <span class="section-kicker">Тарифы</span>
                 <h2>Выберите вовлечённость, а не переплачивайте</h2>
-                <p>Разовая оплата за сайт + ежемесячное ведение рекламы. Рекламный бюджет оплачивается отдельно, напрямую в Яндекс.Директ.</p>
+                <p>Разовая оплата за сайт делится на 2 части: 50% сразу, 50% — после первых 5 заявок с сайта. Плюс ежемесячное ведение рекламы. Рекламный бюджет оплачивается отдельно, напрямую в Яндекс.Директ.</p>
             </div>
 
             <div class="pricing-grid">
                 <div class="price-card reveal">
                     <h3>Старт</h3>
                     <p class="price-tagline">Попробовать без большого риска</p>
-                    <div class="price-row"><span class="price-num">13 000 ₽</span><span class="price-unit">разово</span></div>
+                    <div class="price-row"><span class="price-num">26 000 ₽</span><span class="price-unit">разово</span></div>
+                    <div class="price-split">13 000 ₽ сейчас + 13 000 ₽ после 5 заявок</div>
                     <div class="price-sub">+ 10 000 ₽ / мес ведение</div>
                     <ul class="price-features">
                         <li>Сайт с формой заявки на вашем движке</li>
@@ -573,7 +693,8 @@
                     <span class="price-badge">Популярный выбор</span>
                     <h3>Стандарт</h3>
                     <p class="price-tagline">Стабильный поток заявок</p>
-                    <div class="price-row"><span class="price-num">22 000 ₽</span><span class="price-unit">разово</span></div>
+                    <div class="price-row"><span class="price-num">44 000 ₽</span><span class="price-unit">разово</span></div>
+                    <div class="price-split">22 000 ₽ сейчас + 22 000 ₽ после 5 заявок</div>
                     <div class="price-sub">+ 13 000 ₽ / мес ведение</div>
                     <ul class="price-features">
                         <li>Всё из тарифа «Старт»</li>
@@ -588,7 +709,8 @@
                 <div class="price-card reveal">
                     <h3>PRO</h3>
                     <p class="price-tagline">Для загруженных мастеров и бригад</p>
-                    <div class="price-row"><span class="price-num">38 000 ₽</span><span class="price-unit">разово</span></div>
+                    <div class="price-row"><span class="price-num">76 000 ₽</span><span class="price-unit">разово</span></div>
+                    <div class="price-split">38 000 ₽ сейчас + 38 000 ₽ после 5 заявок</div>
                     <div class="price-sub">+ 20 000 ₽ / мес ведение</div>
                     <ul class="price-features">
                         <li>Всё из тарифа «Стандарт»</li>
@@ -598,6 +720,14 @@
                         <li>Тестирование новых текстов объявлений</li>
                     </ul>
                     <a href="#lead" class="btn-primary" data-magnetic>Выбрать «PRO»</a>
+                </div>
+            </div>
+
+            <div class="budget-notice reveal">
+                <div class="budget-notice-icon">💳</div>
+                <div>
+                    <h4>Рекламный бюджет — отдельно от тарифа</h4>
+                    <p>Вы сами пополняете свой кабинет в Яндекс.Директе и платите Яндексу напрямую за клики — мы не берём с этого комиссию. На запуск и первые тесты рекомендуем заложить <b>от 15 000 ₽</b>: этого хватает, чтобы набрать статистику и увидеть реальную цену заявки в вашем городе.</p>
                 </div>
             </div>
 
@@ -621,7 +751,7 @@
 
             <details class="faq-item reveal" open>
                 <summary>Кто платит за рекламный бюджет в Яндекс.Директе?</summary>
-                <p>Рекламный бюджет вы оплачиваете напрямую в Яндекс.Директ, отдельно от наших тарифов. Мы берём оплату только за создание сайта и ведение кампании — не за клики и показы.</p>
+                <p>Рекламный бюджет вы оплачиваете напрямую в Яндекс.Директ, отдельно от наших тарифов. Мы берём оплату только за создание сайта и ведение кампании — не за клики и показы. На запуск и первые тесты рекомендуем пополнить кабинет минимум на 15 000 ₽ — этого хватает, чтобы набрать статистику и понять реальную цену заявки в вашем городе.</p>
             </details>
 
             <details class="faq-item reveal">
@@ -891,6 +1021,50 @@
             heroSection.addEventListener('mouseleave', () => {
                 layers.forEach(layer => { layer.style.transform = 'translate(0, 0)'; });
             });
+        })();
+
+        // --- Проявление вступительного текста блоками при скролле (с blur) ---
+        (function initIntroFlowReveal() {
+            const blocks = document.querySelectorAll('.intro-flow');
+            if (!blocks.length) return;
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    entry.target.classList.toggle('in-view', entry.isIntersecting);
+                });
+            }, { threshold: 0.4, rootMargin: '0px 0px -15% 0px' });
+
+            blocks.forEach(block => observer.observe(block));
+        })();
+
+        // --- Автопрокрутка окна отзывов при попадании в вьюпорт ---
+        (function initReviewsAutoScroll() {
+            const body = document.getElementById('tgReviewsBody');
+            if (!body) return;
+
+            let played = false;
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting && !played) {
+                        played = true;
+                        const maxScroll = body.scrollHeight - body.clientHeight;
+                        if (maxScroll <= 0) return;
+                        let start = null;
+                        const duration = 1400;
+                        function step(ts) {
+                            if (!start) start = ts;
+                            const progress = Math.min((ts - start) / duration, 1);
+                            const eased = 1 - Math.pow(1 - progress, 3);
+                            body.scrollTop = maxScroll * eased;
+                            if (progress < 1) requestAnimationFrame(step);
+                        }
+                        requestAnimationFrame(step);
+                        observer.disconnect();
+                    }
+                });
+            }, { threshold: 0.6 });
+
+            observer.observe(body);
         })();
     </script>
 
