@@ -208,13 +208,6 @@
         .price-card:not(.featured) .btn-primary { background: var(--ink); }
         .price-card:not(.featured) .btn-primary:hover { background: var(--ink-light); }
 
-        .ai-addon { background: #fff; border: 1px dashed var(--accent); border-radius: 16px; padding: 28px 32px; margin-top: 30px; display: flex; align-items: center; gap: 24px; flex-wrap: wrap; }
-        .ai-addon-icon { flex-shrink: 0; width: 52px; height: 52px; border-radius: 12px; background: rgba(48,72,234,0.1); color: var(--accent-hover); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; }
-        .ai-addon h4 { font-size: 1.05rem; margin-bottom: 6px; }
-        .ai-addon p { font-size: 0.88rem; color: var(--muted-light); }
-        .ai-addon .price-tag { margin-left: auto; text-align: right; font-family: 'Manrope', sans-serif; font-weight: 700; white-space: nowrap; }
-        .ai-addon .price-tag span { display: block; font-size: 0.75rem; color: var(--muted-light); font-weight: 400; font-family: 'Manrope', sans-serif; }
-
         .budget-notice { background: var(--bg-light); border: 1px solid var(--border-light); border-radius: 16px; padding: 24px 32px; margin-top: 20px; display: flex; align-items: flex-start; gap: 20px; }
         .budget-notice-icon { flex-shrink: 0; width: 48px; height: 48px; border-radius: 12px; background: #fff; box-shadow: 0 4px 10px rgba(15,17,21,0.06); display: flex; align-items: center; justify-content: center; font-size: 1.3rem; }
         .budget-notice h4 { font-size: 1rem; margin-bottom: 6px; }
@@ -292,9 +285,9 @@
         @media (max-width: 768px) {
             nav { flex-wrap: nowrap; padding: 14px 0; }
             .nav-links { display: none; }
-            .logo { font-size: 0.95rem; }
+            .logo { font-size: 0.62rem; letter-spacing: -0.2px; }
             .logo-text-full { display: none; }
-            .logo-text-short { display: inline; }
+            .logo-text-short { display: inline; text-transform: lowercase; }
             .nav-cta { padding: 9px 14px; font-size: 0.78rem; white-space: nowrap; flex-shrink: 0; }
             .trust-bar .container { grid-template-columns: repeat(2, 1fr); }
             .section { padding: 60px 0; }
@@ -303,8 +296,6 @@
             .case-numbers-result { flex-direction: column; }
             .case-result-minus, .case-result-eq { font-size: 1.1rem; }
             .lead-box { padding: 30px 22px; }
-            .ai-addon { flex-direction: column; text-align: center; }
-            .ai-addon .price-tag { margin-left: 0; text-align: center; }
         }
     </style>
 </head>
@@ -317,7 +308,7 @@
         <div class="logo">
             <span class="logo-badge">⚡</span>
             <span class="logo-text-full">Заявки для мастера</span>
-            <span class="logo-text-short">Заявки</span>
+            <span class="logo-text-short">заявкидлямастеров.рф</span>
         </div>
         <div class="nav-links">
             <a href="#how">Как это работает</a>
@@ -725,6 +716,7 @@
                         <li>Реклама в РСЯ вторым каналом</li>
                         <li>Приоритетные правки — в течение суток</li>
                         <li>Тестирование новых текстов объявлений</li>
+                        <li><b>AI-обработка заявок на сайте — включена</b></li>
                     </ul>
                     <a href="#lead" class="btn-primary" data-magnetic>Выбрать «PRO»</a>
                 </div>
@@ -736,15 +728,6 @@
                     <h4>Рекламный бюджет — отдельно от тарифа</h4>
                     <p>Вы сами пополняете свой кабинет в Яндекс.Директе и платите Яндексу напрямую за клики — мы не берём с этого комиссию. На запуск и первые тесты рекомендуем заложить <b>от 15 000 ₽</b>: этого хватает, чтобы набрать статистику и увидеть реальную цену заявки в вашем городе.</p>
                 </div>
-            </div>
-
-            <div class="ai-addon reveal">
-                <div class="ai-addon-icon">🤖</div>
-                <div>
-                    <h4>AI-обработка заявок на сайте</h4>
-                    <p>Пока вы на объекте — ИИ сам общается с клиентом в чате на сайте текстом, узнаёт проблему и модель техники, и присылает вам готовую заявку в Telegram.</p>
-                </div>
-                <div class="price-tag">16 000 ₽<span>разово</span>+ 2 000 ₽<span>/ мес</span></div>
             </div>
         </div>
     </section>
