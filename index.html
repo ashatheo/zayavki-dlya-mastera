@@ -47,7 +47,8 @@
             position: sticky; top: 0; z-index: 200; background-color: rgba(247,248,251,0.92); backdrop-filter: blur(8px); padding: 18px 0;
             border-bottom: 1px solid var(--border-light); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px;
         }
-        .logo { font-family: 'Unbounded', sans-serif; font-size: 1.1rem; font-weight: 600; display: flex; align-items: center; gap: 10px; letter-spacing: -0.3px; }
+        .logo { font-family: 'Unbounded', sans-serif; font-size: 1.1rem; font-weight: 600; display: flex; align-items: center; gap: 10px; letter-spacing: -0.3px; white-space: nowrap; }
+        .logo-text-short { display: none; }
         .logo-badge { display: inline-flex; align-items: center; justify-content: center; width: 34px; height: 34px; background: var(--accent); border-radius: 8px; color: #fff; font-size: 1rem; }
         .nav-links { display: flex; gap: 25px; }
         .nav-links a { color: var(--muted-light); text-decoration: none; font-size: 0.9rem; font-weight: 600; transition: color 0.2s; }
@@ -57,7 +58,7 @@
 
         /* --- ВСТУПИТЕЛЬНЫЙ ТЕКСТ С BLUR-ПРОЯВЛЕНИЕМ ПРИ СКРОЛЛЕ --- */
         .intro-flow-section { background: var(--bg-light); padding: 100px 0; }
-        .intro-block { max-width: 820px; margin: 0 auto; padding: 60px 0; }
+        .intro-block { max-width: 820px; margin: 0 auto; padding: 30px 0; }
         .intro-flow {
             opacity: 0.15; filter: blur(6px); transform: translateY(24px);
             transition: opacity 0.7s ease, filter 0.7s ease, transform 0.7s ease;
@@ -289,7 +290,12 @@
         }
 
         @media (max-width: 768px) {
+            nav { flex-wrap: nowrap; padding: 14px 0; }
             .nav-links { display: none; }
+            .logo { font-size: 0.95rem; }
+            .logo-text-full { display: none; }
+            .logo-text-short { display: inline; }
+            .nav-cta { padding: 9px 14px; font-size: 0.78rem; white-space: nowrap; flex-shrink: 0; }
             .trust-bar .container { grid-template-columns: repeat(2, 1fr); }
             .section { padding: 60px 0; }
             .case-numbers { padding: 28px 20px; }
@@ -310,7 +316,8 @@
     <nav class="container">
         <div class="logo">
             <span class="logo-badge">⚡</span>
-            Заявки для мастера
+            <span class="logo-text-full">Заявки для мастера</span>
+            <span class="logo-text-short">Заявки</span>
         </div>
         <div class="nav-links">
             <a href="#how">Как это работает</a>
@@ -371,7 +378,7 @@
             <div class="hero-stats">
                 <div class="hero-stat reveal"><b>3-5 дней</b><span>До запуска рекламы</span></div>
                 <div class="hero-stat reveal"><b>от 26 000 ₽</b><span>Сайт под ключ, 50/50</span></div>
-                <div class="hero-stat reveal"><b>Telegram</b><span>Заявки сразу вам</span></div>
+                <div class="hero-stat reveal"><b>Звонок или заявка</b><span>Клиент звонит вам или оставляет контакты</span></div>
             </div>
         </div>
     </header>
@@ -734,10 +741,10 @@
             <div class="ai-addon reveal">
                 <div class="ai-addon-icon">🤖</div>
                 <div>
-                    <h4>AI-ассистент в чате на сайте</h4>
-                    <p>Пока вы на объекте — ИИ сам общается с клиентом на сайте, узнаёт проблему и модель техники, и присылает вам готовую заявку в Telegram.</p>
+                    <h4>AI-обработка заявок на сайте</h4>
+                    <p>Пока вы на объекте — ИИ сам общается с клиентом в чате на сайте текстом, узнаёт проблему и модель техники, и присылает вам готовую заявку в Telegram.</p>
                 </div>
-                <div class="price-tag">8 000 ₽<span>разово</span>+ 2 000 ₽<span>/ мес</span></div>
+                <div class="price-tag">16 000 ₽<span>разово</span>+ 2 000 ₽<span>/ мес</span></div>
             </div>
         </div>
     </section>
